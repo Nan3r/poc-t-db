@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<link rel="stylesheet" media="screen"  href="__PUBLIC__/dist/css/bootstrap.css" type="text/css" />
+<link rel="stylesheet" media="screen"  href="__PUBLIC__/dist/css/bootstrap-combined.min.css" type="text/css" />
+<script src="__PUBLIC__/dist/js/jquery-3.1.0.min.js"></script>
+<script src="__PUBLIC__/dist/js/bootstrap.min.js"></script>
+<style> 
+        body{
+			background:url(__PUBLIC__/image/login.jpg) top center no-repeat; background-size:cover;
+		}
+form{
+			width:360px;
+			margin: 0 auto;
+			position:relative;
+			top:43vh;
+		}
+</style> 
+</head>
+<body>
+
+<form action="__CONTROLLER__/update" method="post">
+<div class="dropdown">
+<select id="sele" name="poc_name" onchange="poc_json();">
+	<volist name="poc_name" id="v">
+  <option value ="{$v.poc_name}">{$v.poc_name}</option>
+  </volist>
+</select>
+</div>
+POC_TYPE:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="text" name="poc_type" id="poc_type">
+POC_INTRODUCE:
+<textarea name="poc_introduce" id="poc_introduce"></textarea>
+<input type="submit" name="submit" value="update"><input type="submit"  name="submit" value="delete">
+</form> 
+ <script type="text/javascript">
+ function poc_json(){
+ var sele = $('#sele option:selected').text();
+ $.ajax({  
+	type:'post',      
+	url:'__CONTROLLER__/json',  
+	data:{'poc_name':sele},  
+	dataType:'json',  
+	success:function(data){
+		$("#poc_type").val(data.poc_type);
+		$("#poc_introduce").val(data.poc_introduce);
+	}  
+});  
+ }
+ </script>
+
+</body>
+</html>

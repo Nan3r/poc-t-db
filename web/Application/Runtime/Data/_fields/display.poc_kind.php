@@ -1,0 +1,1 @@
+a:6:{i:0;s:6:"poc_id";i:1;s:8:"poc_name";i:2;s:8:"poc_type";i:3;s:13:"poc_introduce";s:3:"_pk";s:6:"poc_id";s:5:"_type";a:4:{s:6:"poc_id";s:15:"int(5) unsigned";s:8:"poc_name";s:12:"varchar(100)";s:8:"poc_type";s:12:"varchar(100)";s:13:"poc_introduce";s:12:"varchar(200)";}}
